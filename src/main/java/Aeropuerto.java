@@ -51,9 +51,12 @@ public class Aeropuerto {
 	 * @param fechaSalida
 	 * @param fechaLlegada
 	 */
-	public Vuelo crearVuelo(String idVuelo, String modeloAvion, ArrayList<String> rutaVuelo, String fechaSalida, String fechaLlegada) {
-		// TODO - implement Aeropuerto.crearVuelo
-		throw new UnsupportedOperationException();
+	public Vuelo crearVuelo(String idVuelo, String modeloAvion, ArrayList<Ciudad> rutaVuelo, String fechaSalida, String fechaLlegada) {
+		for (Avion avion : aviones) {
+			if (avion.getModelo().equals(modeloAvion)) {
+				avion.getVuelos().add(new Vuelo(idVuelo,rutaVuelo,modeloAvion,fechaSalida, fechaLlegada));
+			}
+		}
 	}
 
 	/**
@@ -63,8 +66,7 @@ public class Aeropuerto {
 	 * @param propietario
 	 */
 	public void registrarAvion(String modeloAvion, int capacidadMaxima, String propietario) {
-		// TODO - implement Aeropuerto.registrarAvion
-		throw new UnsupportedOperationException();
+		aviones.add(new Avion(modeloAvion,capacidadMaxima,propietario));
 	}
 
 	/**
@@ -72,8 +74,17 @@ public class Aeropuerto {
 	 * @param fechaSalida
 	 */
 	public ArrayList<Pasajero> mostrarPasajerosPorFecha(String fechaSalida) {
-		// TODO - implement Aeropuerto.mostrarPasajerosPorFecha
-		throw new UnsupportedOperationException();
+		ArrayList<Pasajero> pasajeroPorFecha = new ArrayList<>();
+		for(Avion avion : aviones){
+			for (Vuelo vuelo : avion.getVuelos()){
+				if(vuelo.getFechaSalida().equals(fechaSalida)){
+					for (Pasajero pasajero : vuelo.getPasajeros()){
+						pasajeroPorFecha.add(pasajero);
+					}
+				}
+			}
+		}
+		return pasajeroPorFecha;
 	}
 
 }

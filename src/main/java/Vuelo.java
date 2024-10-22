@@ -6,6 +6,7 @@ public class Vuelo {
 	Collection<Pasajero> pasajerosVuelo;
 	Collection<Ciudad> rutaVueloLista;
 	Piloto pilotoAvion;
+	private String modeloAvion;
 	private ArrayList<Pasajero> pasajeros;
 	private Piloto piloto;
 	private String fechaSalida;
@@ -13,6 +14,17 @@ public class Vuelo {
 	private ArrayList<Ciudad> rutaVuelo;
 	private String idVuelo;
 	private Piloto copiloto;
+
+	public Vuelo(String idVuelo, ArrayList<Ciudad> rutaDeVuelo,String modeloDeAvion, String fechaSalida, String fechaEstimadaLlegada) {
+		pasajerosVuelo = new ArrayList<Pasajero>();
+		rutaVuelo = rutaDeVuelo;
+		this.idVuelo = idVuelo;
+		this.fechaSalida = fechaSalida;
+		this.fechaEstimadaLlegada = fechaEstimadaLlegada;
+		piloto = null;
+		modeloAvion = modeloDeAvion;
+
+	}
 
 	public ArrayList<Pasajero> getPasajeros() {
 		return this.pasajeros;
@@ -84,20 +96,6 @@ public class Vuelo {
 	 */
 	public void setIdVuelo(String idVuelo) {
 		this.idVuelo = idVuelo;
-	}
-
-	/**
-	 * 
-	 * @param pasajeros
-	 * @param piloto
-	 * @param fechaSalida
-	 * @param fechaEstimadaLlegada
-	 * @param rutaVuelo
-	 * @param idVuelo
-	 */
-	public void Vuelo(ArrayList<Pasajero> pasajeros, String piloto, String fechaSalida, String fechaEstimadaLlegada, ArrayList<Ciudad> rutaVuelo, String idVuelo) {
-		// TODO - implement Vuelo.Vuelo
-		throw new UnsupportedOperationException();
 	}
 
 	public Piloto getCopiloto() {

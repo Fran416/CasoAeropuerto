@@ -9,6 +9,8 @@ public class Avion {
 	private int capacidad;
 	private String propietario;
 
+	public Avion(String modelo, int capacidad, String propietario) {}
+
 	public String getModelo() {
 		return this.modelo;
 	}
